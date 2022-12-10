@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Users</h1>
+
+<div id="users" class='container'>
+  <table class='table table-striped' data-toggle="table">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th >Role</th>
+      <th>Image</th>
+      <th colspan='2' style='text-align: center;'> Actions</th>
+    </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td> <%= user.first_name %></td>
+      <td> <%= user.last_name %></td>
+      <td> <%= user.role.name %></td>
+      <td> <%= image_tag(user.image, height: 50, width: 50)  if user.image.present? %></td>
+      <td colspan="2" style='text-align: center;'> 
+        <%= link_to "Edit", edit_user_path(user), class: 'col-sm-3 btn btn-primary' %>
+        <%= link_to "Show", user, class: 'btn btn-info' %>
+
+      </td>
+    </tr>
+  <% end %>
+
+</table>
+  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+  <%= link_to "New user", new_user_path, class: 'btn btn-secondary' %>
+</div>
+
+

@@ -1,0 +1,10 @@
+<div class='bd-example'>
+  <p style="color: green"><%= notice %></p>
+
+  <%= render @user %>
+
+  <div class="btn-group">
+    <%= link_to "Home", users_path, class: 'col-sm-3 btn btn-primary'%>  |    
+    <%= button_to "Destroy", @user, method: :delete, class: 'btn btn-danger' %>
+  </div>
+</div>
